@@ -2,6 +2,9 @@
 Technology 3. semester code<br>
 <h2>Session 1</h2>
 <h2>Session 2</h2>
+<ul>
+  <li>WeatherBunny: A simple webscraper</li>
+</ul>
 <h2>Session 3</h2>
 <h2>Session 4</h2>
 <h2>Session 5</h2>
