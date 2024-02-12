@@ -1,0 +1,38 @@
+{
+  "profiles": {
+    "SendTelegram_ev": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5165"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "SENDTELEGRAM_BOTAPIKEY": "5949217810:AAFqqP1QyJAtrp4_jermdlLGBXiCzAqoJk8",
+        "SENDTELEGRAM_CHATID": "-1001715550580"
+      },
+      "publishAllPorts": true
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:33145",
+      "sslPort": 0
+    }
+  }
+}

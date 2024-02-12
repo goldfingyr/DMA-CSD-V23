@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6" style="background-color:lemonchiffon">
+            <form asp-page="" method="post">
+                <input type="text" name="myText" />
+                <button type="submit" class="btn btn-success" name="action" value="sendtelegram">Submit</button>
+            </form>
+        </div>
+        <div class="col-6" style="background-color:lightblue">
+            <form asp-page="" method="post">
+                <input type="hidden" name="action" value="sendtelegram" />
+                <input type="text" name="myText" onchange="javascript:this.form.submit()" />
+            </form>
+        </div>
+    </div>
+</div>
