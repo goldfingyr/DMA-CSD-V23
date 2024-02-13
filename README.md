@@ -7,7 +7,14 @@ Technology 3. semester code<br>
 </ul>
 <h2>Session 3</h2>
 <h2>Session 4</h2>
+<ul>
+  <li>SendTelegram-hc: Keys HardCoded</li>
+  <li>SendTelegram-ev: Keys read from EnVironment</li>
+</ul>
 <h2>Session 5</h2>
+<ul>
+  <li>ACID-1: Database transaction benchmarker</li>
+</ul>
 <h2>Session 6</h2>
 <h2>Session 7</h2>
 <h2>Session 8</h2>
