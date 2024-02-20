@@ -16,6 +16,10 @@ Technology 3. semester code<br>
   <li>ACID-1: Database transaction benchmarker</li>
 </ul>
 <h2>Session 6</h2>
+<ul>
+  <li>SignalRChat: Chat system based on SignalR</li>
+  <li>SocketServer: Berkley client-server dual project solution</li>
+</ul>
 <h2>Session 7</h2>
 <h2>Session 8</h2>
 <h2>Session 9</h2>
