@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@Html.AntiForgeryToken()
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col">
+        <div id="ajax1date"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        @if (Model.CarSelected != null)
+        {
+            <h3>Selected car</h3>
+            <p>@Model.CarSelected.licensplate<br />@Model.CarSelected.make<br />@Model.CarSelected.model<br />@Model.CarSelected.color</p>
+        }
+        <h3>Find car</h3>
+        <form method="post">
+            <input type="text" name="target" />
+            <input type="hidden" name="action" value="findCar" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function ajax1() {
+            $.ajax({
+                type: "POST",
+                url: "?handler=ajax1",
+                data: { data: "ajax1" },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                dataType: "json",
+                success: function (response) {
+                    console.log("SUCCESS: Ajax1: [" + response.result + "]");
+                    $('#ajax1date').html("Date: " + response.result);
+                },
+                error: function (req, err) {
+                    console.log(arguments);
+                    console.log("AJAX1 Error: " + err);
+                    console.log("AJAX1 URL: ?handler=ajax1");
+                }
+            });
+        }
+
+        function functionInterval() {
+            ajax1();
+        }
+
+        setInterval(functionInterval, 1000);
+    </script>
+}
+
