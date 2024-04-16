@@ -20,7 +20,7 @@ namespace OpenID_Keycloak_MVCAPI.Controllers
             _logger = logger;
         }
 
-        [Authorize(Roles = "admin")]                  // Uncomment for Resource Owner Password Flow
+        //[Authorize(Roles = "admin")]                  // Uncomment for Resource Owner Password Flow
         //[Authorize]                                   // Uncomment for Client Credentials Flow
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
