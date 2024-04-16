@@ -1,0 +1,306 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@functions {
+    public string breakString(string lstring, int maxlength)
+    {
+        int indx = 0;
+        while (indx < lstring.Length)
+        {
+            if (indx > 0)
+            {
+                <br />
+            }
+            if (indx + maxlength > lstring.Length)
+            {
+                @lstring.Substring(indx)
+                return "";
+            }
+            @lstring.Substring(indx, 40)
+            indx += maxlength;
+        }
+        return "";
+    }
+}
+
+<div class="row">
+    <div class="col">
+        <h1>AES (Advanced Encryption Standard)</h1>
+    </div>
+</div>
+<div class="row" style="background-color:#94F2E7">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">AES Key</th><th scope="col">AES IV</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.indexDBO.aesKey
+                    </td>
+                    <td>
+                        @Model.indexDBO.aesIv
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post">
+            <input type="hidden" name="action" value="aeskey" />
+            <input type="submit" value="Generate AES Key" />
+        </form>
+    </div>
+</div>
+<div class="row" style="background-color:#F7E28D">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Plain-in</th><th scope="col">Code-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="aescode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.aes1In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@Model.indexDBO.aes1Out</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="background-color:#F8A9F4">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Code-in</th><th scope="col">Plain-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="aesdecode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.aes2In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@Model.indexDBO.aes2Out</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h1>RSA (Rivest–Shamir–Adleman)</h1>
+    </div>
+</div>
+<div class="row" style="background-color:#94F2E7">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Public key</th><th scope="col">Private key</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @breakString(Model.indexDBO.rsaPublic, 40)
+                    </td>
+                    <td>
+                        @breakString(Model.indexDBO.rsaPrivate, 40)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post">
+            <input type="hidden" name="action" value="rsakey" />
+            <input type="submit" value="Generate RSA Key" />
+        </form>
+    </div>
+</div>
+<div class="row" style="background-color:#F7E28D">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Plain-in</th><th scope="col">Code-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="rsacode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.rsa1In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@breakString(Model.indexDBO.rsa1Out, 40)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="background-color:#F8A9F4">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Code-in</th><th scope="col">Plain-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="rsadecode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.rsa2In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@Model.indexDBO.rsa2Out</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h1>DES (Data Encryption Standard)</h1>
+    </div>
+</div>
+<div class="row" style="background-color:#94F2E7">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Key</th><th scope="col">IV</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @breakString(Model.indexDBO.desKey, 40)
+                    </td>
+                    <td>
+                        @breakString(Model.indexDBO.desIv, 40)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post">
+            <input type="hidden" name="action" value="deskey" />
+            <input type="submit" value="Generate DES Key" />
+        </form>
+    </div>
+</div>
+<div class="row" style="background-color:#F7E28D">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Plain-in</th><th scope="col">Code-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="descode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.des1In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@breakString(Model.indexDBO.des1Out, 40)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="background-color:#F8A9F4">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Code-in</th><th scope="col">Plain-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="desdecode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.des2In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@Model.indexDBO.des2Out</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h1>Triple DES (3DES)</h1>
+    </div>
+</div>
+<div class="row" style="background-color:#94F2E7">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Key</th><th scope="col">IV</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @breakString(Model.indexDBO.des3Key, 40)
+                    </td>
+                    <td>
+                        @breakString(Model.indexDBO.des3Iv, 40)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post">
+            <input type="hidden" name="action" value="des3key" />
+            <input type="submit" value="Generate 3DES Key" />
+        </form>
+    </div>
+</div>
+<div class="row" style="background-color:#F7E28D">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Plain-in</th><th scope="col">Code-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="des3code" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.des31In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@breakString(Model.indexDBO.des31Out, 40)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="background-color:#F8A9F4">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Code-in</th><th scope="col">Plain-out</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form method="post">
+                            <input class="form-control w-100" type="hidden" name="action" value="des3decode" />
+                            <input class="form-control w-100" type="text" name="src" value="@Model.indexDBO.des32In" onchange="javascript:this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@Model.indexDBO.des32Out</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
