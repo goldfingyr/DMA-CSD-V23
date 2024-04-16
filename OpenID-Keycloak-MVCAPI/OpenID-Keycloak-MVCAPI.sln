@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenID-Keycloak-MVCAPI", "OpenID-Keycloak-MVCAPI\OpenID-Keycloak-MVCAPI.csproj", "{EEE2BACD-45D1-4176-8395-52E6168A0C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEE2BACD-45D1-4176-8395-52E6168A0C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE2BACD-45D1-4176-8395-52E6168A0C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE2BACD-45D1-4176-8395-52E6168A0C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE2BACD-45D1-4176-8395-52E6168A0C53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {490E2571-6791-43F6-8D4B-CCE83539AFC9}
+	EndGlobalSection
+EndGlobal
